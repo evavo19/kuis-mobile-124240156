@@ -16,8 +16,7 @@ class DetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
+              ClipRRect(borderRadius: BorderRadius.circular(16),
                 child: Image.network(
                   shoe.image,
                   width: double.infinity,

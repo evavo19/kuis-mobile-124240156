@@ -64,7 +64,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Q8Ls4f_a0MIqSmz9Zj_GHOB7GvBslkNbESYWMzd9mw&s=10",
                 ),
                 const Text(
-                  "Selamat Datang di Toko Sepatu Selamat Berbelanja",
+                  "Selamat Datang di Toko Sepatu",
+                  style: TextStyle(color: Colors.grey, fontSize: 13),
+                ),
+                const SizedBox(height: 15),
+
+                const Text(
+                  "Selamat Berbelanja",
                   style: TextStyle(color: Colors.grey, fontSize: 13),
                 ),
                 const SizedBox(height: 15),
@@ -105,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.purpleAccent),
+                      borderSide: const BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ),
                 ),

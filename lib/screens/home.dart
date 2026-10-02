@@ -63,11 +63,10 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _searchController,
               onChanged: _filterShoe,
               decoration: InputDecoration(
-                hintText: "Cari Favoritemu...",
+                hintText: "Cari Sepatu Favoritemu...",
                 prefixIcon: const Icon(Icons.search, color: Colors.purple),
                 suffixIcon: _searchController.text.isNotEmpty
-                    ? IconButton(
-                        icon: const Icon(Icons.clear, color: Colors.grey),
+                    ? IconButton(icon: const Icon(Icons.clear, color: Colors.grey),
                         onPressed: () {
                           _searchController.clear();
                           _filterShoe('');
@@ -97,8 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(color: Colors.grey),
                     ),
                   )
-                : GridView.builder(
-                    padding: const EdgeInsets.all(12.0),
+                : GridView.builder(padding: const EdgeInsets.all(12.0),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,

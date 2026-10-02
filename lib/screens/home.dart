@@ -14,24 +14,24 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
 
   // 2. buat nampung hasil pencarian
-  List<Menu> _filteredMenus = [];
+  List<Shoe> _filteredShoe = [];
 
   @override
   void initState() {
     super.initState();
     // awalan dibuka, tampilkan semua menu
-    _filteredMenus = menus;
+    _filteredShoe = shoeCatalog;
   }
 
   // 3. untuk menyaring (filter) menu berdasarkan ketikan user
-  void _filterMenu(String query) {
+  void _filterShoe(String query) {
     setState(() {
       if (query.isEmpty) {
-        _filteredMenus = menus;
+        _filteredShoe = shoeCatalog;
       } else {
-        _filteredMenus = menus
+        _filteredShoe = shoeCatalog
             .where(
-              (menu) => menu.name.toLowerCase().contains(query.toLowerCase()),
+              (shoeCatalog) => shoeCatalog.shoeName.toLowerCase().contains(query.toLowerCase()),
             )
             .toList();
       }
@@ -47,16 +47,16 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               controller: _searchController,
-              onChanged: _filterMenu, // manggil fungsi penyaring saat diketik
+              onChanged: _filterShoe, // manggil fungsi penyaring saat diketik
               decoration: InputDecoration(
-                hintText: "Cari Menu Gacoan Favoritemu...",
+                hintText: "Cari Favoritemu...",
                 prefixIcon: const Icon(Icons.search, color: Colors.purple),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear, color: Colors.grey),
                         onPressed: () {
                           _searchController.clear();
-                          _filterMenu('');
+                          _filterShoe('');
                         },
                       )
                     : null,
@@ -76,30 +76,30 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           Expanded(
-            child: _filteredMenus.isEmpty
+            child: _filteredShoe.isEmpty
                 ? const Center(
                     child: Text(
-                      "Menu yang Kamu Cari Gak Ada, Maaf yaa :)",
+                      "Sepatu yang Kamu Cari Gak Ada, Maaf yaa :)",
                       style: TextStyle(color: Colors.grey),
                     ),
                   )
                 : ListView.builder(
-                    itemCount: _filteredMenus.length,
+                    itemCount: _filteredShoe.length,
                     itemBuilder: (context, index) {
-                      final menu = _filteredMenus[index];
+                      final shoeCatalog = _filteredShoe[index];
                       return ListTile(
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailScreen(menu: menu),
+                              builder: (context) => DetailScreen(shoe: shoeCatalog,),
                             ),
                           );
                         },
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
                           child: Image.network(
-                            menu.image,
+                            shoeCatalog.image,
                             width: 50,
                             height: 50,
                             fit: BoxFit.cover,
@@ -116,10 +116,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         title: Text(
-                          menu.name,
+                          shoeCatalog.shoeName,
                           style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
-                        subtitle: Text("${menu.price}"),
+                        subtitle: Text("${shoeCatalog.price}"),
                         trailing: const Icon(
                           Icons.chevron_right,
                           color: Colors.grey,

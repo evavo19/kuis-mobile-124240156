@@ -1,5 +1,5 @@
-import 'package:kuis_mobile_124240156/root.dart';
 import 'package:flutter/material.dart';
+import 'package:kuis_mobile_124240156/root.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -12,8 +12,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   void _login({required String username, required String password}) {
-    // buat validasi kalau salah input
+    // Validasi jika input kosong
     if (username.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -24,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    // login ready berhasil, lanjut ke root
+    // Login berhasil
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.green,
@@ -53,8 +60,8 @@ class _LoginScreenState extends State<LoginScreen> {
               spacing: 12,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Q8Ls4f_a0MIqSmz9Zj_GHOB7GvBslkNbESYWMzd9mw&s=10",
+                Image.network(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Q8Ls4f_a0MIqSmz9Zj_GHOB7GvBslkNbESYWMzd9mw&s=10",
                 ),
                 const Text(
                   "Selamat Datang di Gacoan",
@@ -82,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                // masukkan password
+                // Input Password
                 TextField(
                   controller: _passwordController,
                   obscureText: true,
@@ -104,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 10),
 
-                // buttom login
+                // Tombol Login
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: 40,

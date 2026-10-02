@@ -2,14 +2,14 @@ import 'package:kuis_mobile_124240156/models/data.dart';
 import 'package:flutter/material.dart';
 
 class DetailScreen extends StatelessWidget {
-  final Menu menu;
+  final Shoe shoe;
 
-  const DetailScreen({super.key, required this.menu});
+  const DetailScreen({super.key, required this.shoe});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(menu.name)),
+      appBar: AppBar(title: Text(shoe.shoeName)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -19,7 +19,7 @@ class DetailScreen extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.network(
-                  menu.image,
+                  shoe.image,
                   width: double.infinity,
                   height: 220,
                   fit: BoxFit.cover,
@@ -37,19 +37,19 @@ class DetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                menu.name,
+                shoe.shoeName,
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                menu.category,
+                shoe.category,
                 style: const TextStyle(color: Colors.grey, fontSize: 14),
               ),
               const SizedBox(height: 12),
               Text(
-                menu.price,
+                shoe.price,
                 style: const TextStyle(
                   color: Colors.green,
                   fontSize: 18,
@@ -63,7 +63,7 @@ class DetailScreen extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                menu.description,
+                shoe.description,
                 style: const TextStyle(color: Colors.black87, fontSize: 14),
               ),
             ],

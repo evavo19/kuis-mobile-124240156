@@ -11,8 +11,8 @@ class Account {
 }
 
 Account account = Account(
-  username: "adminshoes",
-  password: "shoes123",
+  username: "eva",
+  password: "156",
   displayName: "Admin Shoes Store",
 );
 

@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           backgroundColor: Colors.red,
-          content: Text("Username dan password tidak boleh kosong!"),
+          content: Text("Username dan password tidak boleh kosong yaa!"),
         ),
       );
       return;
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.green,
-        content: Text("Login Berhasil!"),
+        content: Text("Login Berhasil Asixx!"),
       ),
     );
 
@@ -53,10 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
               spacing: 12,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  "assets/logo_gacoan.png",
-                  height: 350,
-                  fit: BoxFit.contain,
+                Image(
+                  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Q8Ls4f_a0MIqSmz9Zj_GHOB7GvBslkNbESYWMzd9mw&s=10",
                 ),
                 const Text(
                   "Selamat Datang di Gacoan",

@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _login({required String username, required String password}) {
-    // Validasi jika input kosong
+    // validasi jika input kosong
     if (username.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    // Login berhasil
+    // login berhasil
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.green,
@@ -64,12 +64,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Q8Ls4f_a0MIqSmz9Zj_GHOB7GvBslkNbESYWMzd9mw&s=10",
                 ),
                 const Text(
-                  "Selamat Datang di Gacoan",
+                  "Selamat Datang di Toko Sepatu Selamat Berbelanja",
                   style: TextStyle(color: Colors.grey, fontSize: 13),
                 ),
                 const SizedBox(height: 15),
 
-                // Input Username
+                // masukkan username yang ada di data.dart
                 TextField(
                   controller: _usernameController,
                   decoration: InputDecoration(
@@ -84,12 +84,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.purpleAccent),
+                      borderSide: const BorderSide(color: Color.fromARGB(255, 0, 0, 0)),
                     ),
                   ),
                 ),
 
-                // Input Password
+                // masukkan password yang ada di data.dart
                 TextField(
                   controller: _passwordController,
                   obscureText: true,
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 10),
 
-                // Tombol Login
+                // tombol login
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: 40,

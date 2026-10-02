@@ -10,16 +10,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // 1. untuk nangkep ketikan di kolom Search
   final TextEditingController _searchController = TextEditingController();
 
-  // 2. hasil pencarian
   List<Shoe> _filteredShoe = [];
 
   @override
   void initState() {
     super.initState();
-    //  semua data saat pertama kali dimuat
     _filteredShoe = shoeCatalog;
   }
 
@@ -29,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  // 3. filter data berdasarkan ketikan user
   void _filterShoe(String query) {
     setState(() {
       if (query.isEmpty) {
@@ -58,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          // Search Bar
           Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 16.0,
@@ -166,14 +161,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     const SizedBox(height: 2),
                                     Text(
-                                      shoe.category, // Sesuaikan jika nama properti di model berbeda (misal: kategori)
+                                      shoe.category, 
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: Colors.grey[600],
                                       ),
                                     ),
                                     const SizedBox(height: 4),
-                                    // Harga Produk
                                     Text(
                                       "Rp ${shoe.price}",
                                       style: const TextStyle(
@@ -182,7 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     const SizedBox(height: 6),
-                                    // Jumlah Like
                                     Row(
                                       children: [
                                         const Icon(
@@ -192,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         const SizedBox(width: 4),
                                         Text(
-                                          "${shoe.likes} likes", // Sesuaikan jika nama properti di model berbeda (misal: like)
+                                          "${shoe.likes} likes", 
                                           style: TextStyle(
                                             fontSize: 11,
                                             color: Colors.grey[700],

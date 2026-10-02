@@ -16,7 +16,8 @@ class DetailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(borderRadius: BorderRadius.circular(16),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(16),
                 child: Image.network(
                   shoe.image,
                   width: double.infinity,
@@ -56,6 +57,17 @@ class DetailScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              
+              const Text(
+                "Jumlah Produk",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+
+              const Text(
+                "Ukuran",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              
               const Text(
                 "Deskripsi",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
